@@ -1,5 +1,6 @@
 import { saveOutputFile } from "../../utils/index.js";
 
+// First-fit: Consiste em escolher a primeira área livre que satisfaça o pedido de alocação
 export function makeFirstFit(memoryPartitions, processSizes) {
   const unallocatedProcessSizes = [];
   const updatedMemoryPartitions = [...memoryPartitions];
@@ -7,7 +8,9 @@ export function makeFirstFit(memoryPartitions, processSizes) {
   for (const processSize of processSizes) {
     let allocated = false;
 
-    for (const memoryPartition of updatedMemoryPartitions) {
+    for (let i = 0; i < updatedMemoryPartitions.length; i++) {
+      const memoryPartition = { ...updatedMemoryPartitions[i] };
+
       // H = Hole, partição livre
       if (memoryPartition.type === "H" && memoryPartition.size >= processSize) {
         const newProcess = {
