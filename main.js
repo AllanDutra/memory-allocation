@@ -13,3 +13,4 @@ const processSizes = readProcessSizesFromInputFile(processesFilePath);
 
 makeFirstFit(memoryPartitions, processSizes);
 makeWorstFit(memoryPartitions, processSizes);
+makeNextFit(memoryPartitions, processSizes);
