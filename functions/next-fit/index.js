@@ -1,7 +1,6 @@
 /*
 Next-fit (próximo encaixe): variante da estratégia first-fit que consiste em percorrer a
-lista de áreas a partir da última área alocada ou liberada, para que o uso das
-áreas livres seja distribuído de forma mais homogênea no espaço de memória
+lista de áreas a partir da última área alocada ou liberada
 */
 
 import { saveOutputFile } from "../../utils/index.js";
@@ -43,7 +42,7 @@ export function makeNextFit(memoryPartitions, processSizes) {
         !allocated
       ) {
         makeAllocation(memoryPartition, process, updatedMemoryPartitions);
-
+      
         allocated = true;
         indiceNextFit = i;
       }
