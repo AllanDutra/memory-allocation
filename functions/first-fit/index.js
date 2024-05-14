@@ -9,7 +9,7 @@ export function makeFirstFit(memoryPartitions, processSizes) {
     let allocated = false;
 
     for (let i = 0; i < updatedMemoryPartitions.length; i++) {
-      const memoryPartition = { ...updatedMemoryPartitions[i] };
+      const memoryPartition = updatedMemoryPartitions[i];
 
       // H = Hole, partição livre
       if (memoryPartition.type === "H" && memoryPartition.size >= processSize) {

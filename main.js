@@ -3,14 +3,22 @@ import {
   readMemoryPartitionsFromInputFile,
   readProcessSizesFromInputFile,
 } from "./utils/index.js";
-import { makeFirstFit, makeWorstFit, makeNextFit} from "./functions/index.js";
+import { makeFirstFit, makeWorstFit, makeNextFit } from "./functions/index.js";
 
 const memoryFilePath = path.resolve("./files/input/", "memory.txt");
 const processesFilePath = path.resolve("./files/input/", "processes.txt");
 
-const memoryPartitions = readMemoryPartitionsFromInputFile(memoryFilePath);
-const processSizes = readProcessSizesFromInputFile(processesFilePath);
+makeFirstFit(
+  readMemoryPartitionsFromInputFile(memoryFilePath),
+  readProcessSizesFromInputFile(processesFilePath)
+);
 
-makeFirstFit(memoryPartitions, processSizes);
-makeWorstFit(memoryPartitions, processSizes);
-makeNextFit(memoryPartitions, processSizes);
+makeWorstFit(
+  readMemoryPartitionsFromInputFile(memoryFilePath),
+  readProcessSizesFromInputFile(processesFilePath)
+);
+
+makeNextFit(
+  readMemoryPartitionsFromInputFile(memoryFilePath),
+  readProcessSizesFromInputFile(processesFilePath)
+);

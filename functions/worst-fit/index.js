@@ -10,7 +10,7 @@ export function makeWorstFit(memoryPartitions, processSizes) {
     let largestHoleSize = 0;
 
     for (let i = 0; i < updatedMemoryPartitions.length; i++) {
-      const memoryPartition = { ...updatedMemoryPartitions[i] };
+      const memoryPartition = updatedMemoryPartitions[i];
 
       // H = Hole, partição livre
       if (memoryPartition.type === "H" && memoryPartition.size >= processSize) {
@@ -22,7 +22,7 @@ export function makeWorstFit(memoryPartitions, processSizes) {
     }
 
     if (largestHoleIndex !== -1) {
-      const memoryPartition = { ...updatedMemoryPartitions[largestHoleIndex] };
+      const memoryPartition = updatedMemoryPartitions[largestHoleIndex];
 
       const newProcess = {
         type: "P", // P = Processo, partição alocada
