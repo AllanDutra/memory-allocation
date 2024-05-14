@@ -3,7 +3,7 @@ import {
   readMemoryPartitionsFromInputFile,
   readProcessSizesFromInputFile,
 } from "./utils/index.js";
-import { makeFirstFit, makeWorstFit } from "./functions/index.js";
+import { makeFirstFit, makeWorstFit, makeNextFit} from "./functions/index.js";
 
 const memoryFilePath = path.resolve("./files/input/", "memory.txt");
 const processesFilePath = path.resolve("./files/input/", "processes.txt");
